@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
 import LandingPage from "./Components/LandingPage";
+import Collection from "./Components/Collection";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/collections" element={<Collection />} />
         </Routes>
       </BrowserRouter>
     </>
