@@ -1,4 +1,17 @@
 @import "tailwindcss";
+
+.swiper-pagination-bullet {
+  background: #ffffff !important;
+  opacity: 0.6;
+  width: 10px;
+  height: 10px;
+}
+.swiper-pagination-bullet-active {
+  background: #ae3f4f !important;
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}
 @keyframes marquee {
   0% {
     transform: translateX(0%);

@@ -1,38 +1,200 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdArrowRightAlt } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+const slides = [
+  {
+    bg: "/banner-1.webp",
+    tag: "STEP INTO STYLE",
+    heading: "Discover The Latest",
+    headingSpan: "Trends In Footwear",
+    desc: "From classic sneakers to trendy boots, our",
+    descSpan: "collection has something for everyone.",
+    textAlign: "md:ml-130 lg:ml-140",
+  },
+  {
+    bg: "/banner-2.webp",
+    tag: "ELEVATE YOUR LOOK",
+    heading: "Find The Perfect Pair",
+    headingSpan: "Of Shoes To Complete.",
+    desc: "Explore our wide range of styles, colors, and",
+    descSpan: "materials to find the perfect shoes for any occasion.",
+    textAlign: "md:ml-120 lg:ml-130",
+  },
+  {
+    bg: "/banner-3.webp",
+    tag: "COMFORT MEETS FASHION",
+    heading: "Discover Shoes That Look",
+    headingSpan: "Great And Feel Even Better.",
+    desc: "Our collection features comfortable and stylish footwear",
+    descSpan: "designed to keep your feet happy all day long.",
+    textAlign: "md:mr-130 lg:mr-140",
+  },
+];
+
+const tabs = ["FEATURED", "NEW ARRIVALS", "BEST SELLER"];
+
+const sneakersProducts = {
+  FEATURED: [
+    {
+      id: 1,
+      img: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+      price: "$25.00",
+      name: "Classic White Tennis Sneakers",
+      brand: "SportyFeet",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 2,
+      img: "/product-19_49ae4265-2610-48a8-b934-1a24b6136832.webp",
+      price: "$25.00",
+      name: "Waterproof Hiking Boots",
+      brand: "TrailGear",
+      hasTimer: true,
+    },
+    {
+      id: 3,
+      img: "/product-23_8eeee338-7bad-4c2b-b296-6804d886a41a.webp",
+      price: "$21.00",
+      name: "Classic Leather Sneakers",
+      brand: "UrbanStep",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 4,
+      img: "/product-26_a72ab182-4323-4754-aa41-d64401571e17.webp",
+      price: "$25.00",
+      name: "High-Top Canvas Sneakers",
+      brand: "TrendyFeet",
+    },
+  ],
+  "NEW ARRIVALS": [
+    {
+      id: 5,
+      img: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+      price: "$30.00",
+      name: "Running Sport Sneakers",
+      brand: "SpeedX",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 6,
+      img: "/product-3_be4a38ab-621f-46d5-a126-3488687e10f6.webp",
+      price: "$28.00",
+      name: "Casual Slip-On Shoes",
+      brand: "EasyWalk",
+    },
+    {
+      id: 7,
+      img: "/product-19_49ae4265-2610-48a8-b934-1a24b6136832.webp",
+      price: "$35.00",
+      name: "Premium Leather Oxfords",
+      brand: "LuxStep",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 8,
+      img: "/product-7_bf9fee80-650d-4775-a219-0eaccf66d47b.webp",
+      price: "$22.00",
+      name: "Low-Top Skate Shoes",
+      brand: "StreetKick",
+    },
+  ],
+  "BEST SELLER": [
+    {
+      id: 9,
+      img: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+      price: "$25.00",
+      name: "Classic White Tennis Sneakers",
+      brand: "SportyFeet",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 10,
+      img: "/product-17.webp",
+      price: "$25.00",
+      name: "Waterproof Hiking Boots",
+      brand: "TrailGear",
+      hasTimer: true,
+    },
+    {
+      id: 11,
+      img: "/product-23_8eeee338-7bad-4c2b-b296-6804d886a41a.webp",
+      price: "$21.00",
+      name: "Classic Leather Sneakers",
+      brand: "UrbanStep",
+      brandColor: "#ae3f4f",
+    },
+    {
+      id: 12,
+      img: "/product-26_a72ab182-4323-4754-aa41-d64401571e17.webp",
+      price: "$25.00",
+      name: "High-Top Canvas Sneakers",
+      brand: "TrendyFeet",
+    },
+  ],
+};
+
+const collections = [
+  { id: 1, image: "/col-5.webp", text: "Athletic Footwear" },
+  { id: 3, image: "/col-6.webp", text: "Luxury Leather Shoes" },
+  { id: 4, image: "/col-2.webp", text: "Sandles & Slides" },
+  { id: 5, image: "/col-1.webp", text: "Sustainable Footwear" },
+];
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const handlebtnClick = () => {
     navigate("/collections");
   };
+  const [activeTab, setActiveTab] = useState("FEATURED");
 
   return (
     <>
-      <div className="relative w-full h-105 mt-5 flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat bg-[url('/banner-1.webp')]">
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="relative md:ml-130 lg:ml-140">
-          <p className=" text-sm text-white">STEP INTO STYLE</p>
-          <h1 className=" text-white font-bold md:text-3xl lg:text-4xl text-xl mt-5">
-            Discover The Latest{" "}
-            <span className="block">Trends in Footwear</span>
-          </h1>
-          <p className="text-white mt-5">
-            From classic sneakers to trendy boots, our{" "}
-            <span className="block">
-              collection has something for everyone.
-            </span>
-          </p>
-          <button
-            onClick={handlebtnClick}
-            className="bg-[#ae3f4f] hover:bg-black cursor-pointer flex justify-center items-center gap-1 w-36 h-12 text-white mt-5 tracking-wider text-sm"
-          >
-            SHOP NOW <MdArrowRightAlt />
-          </button>
-        </div>
+      <div className="mt-5">
+        <Swiper
+          modules={[Autoplay, Pagination, EffectFade]}
+          effect="fade"
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          speed={900}
+          loop={true}
+          pagination={{ clickable: true }}
+          className="w-full h-105"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="relative w-full h-105 flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${slide.bg}')` }}
+              >
+                <div className="absolute inset-0 bg-black/40"></div>
+                <div className={`relative ${slide.textAlign}`}>
+                  <p className="text-sm text-white tracking-widest">
+                    {slide.tag}
+                  </p>
+                  <h1 className="text-white font-bold md:text-3xl lg:text-4xl text-xl mt-5">
+                    {slide.heading}{" "}
+                    <span className="block">{slide.headingSpan}</span>
+                  </h1>
+                  <p className="text-white mt-5">
+                    {slide.desc} <span className="block">{slide.descSpan}</span>
+                  </p>
+                  <button
+                    onClick={handlebtnClick}
+                    className="bg-[#ae3f4f] hover:bg-black cursor-pointer flex justify-center items-center gap-1 w-36 h-12 text-white mt-5 tracking-wider text-sm"
+                  >
+                    SHOP NOW <MdArrowRightAlt />
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
       <section className="max-w-6xl mx-auto mt-20 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <div className="bg-[url('/grid-three-1.webp')] bg-cover bg-right h-60 flex flex-col justify-center items-start pl-10">
@@ -80,6 +242,139 @@ const LandingPage = () => {
           </button>
         </div>
       </section>
+
+      <section className="max-w-6xl mx-auto mt-20 mb-16 px-4">
+        <div className="text-center mb-8">
+          <p className="text-xs tracking-[0.25em] text-gray-400 uppercase mb-2">
+            The Latest Trends In Athletic Footwear
+          </p>
+          <h2 className="text-4xl font-bold text-gray-900">
+            Sneakers &amp; Kicks
+          </h2>
+        </div>
+
+        <div className="flex justify-center gap-10 mb-10">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`text-sm tracking-widest pb-2 cursor-pointer transition-all duration-200 ${
+                activeTab === tab
+                  ? "border-b-2 border-gray-900 text-gray-900 font-semibold"
+                  : "text-gray-400 hover:text-gray-700"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 ">
+          {sneakersProducts[activeTab].map((product) => (
+            <div
+              key={product.id}
+              onClick={handlebtnClick}
+              className="cursor-pointer group"
+            >
+              <div className="bg-[#FBF9F7] group-hover:scale-105 flex justify-center items-center h-52 overflow-hidden relative mb-3">
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="h-60 w-80 object-contain transition-transform duration-300"
+                />
+              </div>
+
+              <p className="text-sm font-semibold text-gray-800">
+                {product.price}
+              </p>
+              <p className="text-sm text-gray-700 mt-0.5">{product.name}</p>
+              <p
+                className="text-xs mt-0.5"
+                style={{ color: product.brandColor || "#888" }}
+              >
+                {product.brand}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="w-full h-100 flex justify-end items-center bg-[url('/wide-banner.webp')] bg-center bg-cover bg-no-repeat">
+        <div className="w-xl flex flex-col h-56 md:mr-20 pr-5">
+          <p className="tracking-wider text-[12px] self-end">
+            COMFORTS MEETS FASHION
+          </p>
+          <h1 className="md:text-4xl text-xl font-semibold self-end mt-3">
+            Discover Shoes that look great
+          </h1>
+          <span className="block md:text-4xl text-xl font-semibold self-end mt-1">
+            and feel even better
+          </span>
+          <p className="text-[12px] self-end mt-3 pl-16 md:pl-0">
+            Our collection features comfortable and stylish footwear designed to
+            keep your feet happy all day long
+          </p>
+          <button
+            onClick={handlebtnClick}
+            className="bg-[#ae3f4f] hover:bg-black w-34 h-10 text-white flex justify-center items-center gap-1 mt-7 self-end text-sm cursor-pointer"
+          >
+            SHOP NOW <MdArrowRightAlt />
+          </button>
+        </div>
+      </section>
+      <div
+        className="w-full overflow-hidden h-13 flex items-center 
+bg-[linear-gradient(90deg,rgba(88,119,40,1),rgba(185,110,17,1)_38%,rgba(198,75,40,1)_85%,rgba(236,35,48,1)_100%)]"
+      >
+        <div className="whitespace-nowrap animate-marquee text-white text-[15px] font-medium">
+          <span className="mx-8">
+            Enjoy 20% off your entire order with the code SHOEFRESH20.
+          </span>
+          <span className="mx-8">
+            Get 15% off your first purchase when you sign up.
+          </span>
+          <span className="mx-8">
+            Enjoy 20% off your entire order with the code SHOEFRESH20.
+          </span>
+          <span className="mx-8">
+            Get 15% off your first purchase when you sign up.
+          </span>
+          <span className="mx-8">
+            Enjoy 20% off your entire order with the code SHOEFRESH20.
+          </span>
+          <span className="mx-8">
+            Get 15% off your first purchase when you sign up.
+          </span>
+          <span className="mx-8">
+            Enjoy 20% off your entire order with the code SHOEFRESH20.
+          </span>
+        </div>
+      </div>
+      <h4 className="tracking-wider text-center text-[12px] text-gray-500 mt-16">
+        STYLES AND COMFORT FOR EVERY SEASON
+      </h4>
+      <h2 className="text-center text-4xl font-semibold mt-2">
+        Boots & Booties
+      </h2>
+      <p className="text-center text-[12px] text-gray-600 mt-4">
+        Check out our collection of the top New Products{" "}
+        <span className="block"> that encourage conversion.</span>
+      </p>
+      <div className="max-w-6xl mx-auto mt-7 px-4 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-10 ">
+        {collections.map((item) => (
+          <div
+            key={item.id}
+            className="w-70 md:w-56 lg:w-65 h-64 group  flex flex-col justify-end items-center bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden"
+            style={{ backgroundImage: `url('${item.image}')` }}
+          >
+            <button
+              onClick={handlebtnClick}
+              className="bg-white text-black w-40 h-10 text-[14px] md:text-[15px] font-semibold mb-4 hover:bg-[#ae3f4f] hover:text-white transition"
+            >
+              {item.text}
+            </button>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
