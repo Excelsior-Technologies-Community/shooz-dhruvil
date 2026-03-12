@@ -147,6 +147,109 @@ const collections = [
   { id: 5, image: "/col-1.webp", text: "Sustainable Footwear" },
 ];
 
+const fashionSneakers = [
+  {
+    id: 1,
+    image: "/five-col-banner-1.webp",
+    title: "COMFORTS MEETS FASHION",
+    text: "Discover shoes",
+    spanText: "that look great",
+    btnText: "SHOP NOW",
+  },
+  {
+    id: 2,
+    image: "/five-col-banner-2.webp",
+    title: "ELEVATE YOUR LOOK",
+    text: "Find the perfect pair of",
+    spanText: "shoes",
+    btnText: "SHOP NOW",
+  },
+  {
+    id: 3,
+    image: "/five-col-banner-3.webp",
+    title: "STEPS INTO STYLE",
+    text: "The Latest trends in",
+    spanText: "footware",
+    btnText: "SHOP NOW",
+  },
+];
+
+const fashionSneaker2 = [
+  {
+    id: 1,
+    image: "/five-col-banner-4.webp",
+    title: "SHOP BY BRAND",
+    text: "Find Your favorite",
+    spanText: "brand and style",
+    btnText: "SHOP NOW",
+  },
+  {
+    id: 2,
+    image: "/five-col-banner-5.webp",
+    title: "SALE AND CLEARANCe",
+    text: "Shop our latest deals",
+    spanText: "and discounts",
+    btnText: "SHOP NOW",
+  },
+];
+
+const SeasonSale = [
+  {
+    id: 1,
+    image: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+    name: "Classic White Tennis Sneakers",
+    price: "$25.00",
+  },
+  {
+    id: 2,
+    image: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+    name: "Classic White Tennis Sneakers",
+    price: "$25.00",
+  },
+  {
+    id: 3,
+    image: "/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.webp",
+    name: "Classic White Tennis Sneakers",
+    price: "$25.00",
+  },
+  {
+    id: 4,
+    image: "/product-17.webp",
+    name: "Waterproof Hiking Boots",
+    price: "$25.00",
+  },
+  {
+    id: 5,
+    image: "/product-17.webp",
+    name: "Waterproof Hiking Boots",
+    price: "$25.00",
+  },
+  {
+    id: 6,
+    image: "/product-17.webp",
+    name: "Waterproof Hiking Boots",
+    price: "$25.00",
+  },
+  {
+    id: 7,
+    image: "/product-7_bf9fee80-650d-4775-a219-0eaccf66d47b.webp",
+    name: "Classic Leather Sneakers",
+    price: "$21.00",
+  },
+  {
+    id: 8,
+    image: "/product-7_bf9fee80-650d-4775-a219-0eaccf66d47b.webp",
+    name: "Classic Leather Sneakers",
+    price: "$21.00",
+  },
+  {
+    id: 9,
+    image: "/product-7_bf9fee80-650d-4775-a219-0eaccf66d47b.webp",
+    name: "Classic Leather Sneakers",
+    price: "$21.00",
+  },
+];
+
 const LandingPage = () => {
   const navigate = useNavigate();
   const handlebtnClick = () => {
@@ -374,6 +477,163 @@ bg-[linear-gradient(90deg,rgba(88,119,40,1),rgba(185,110,17,1)_38%,rgba(198,75,4
             </button>
           </div>
         ))}
+      </div>
+      <section className="w-full bg-[#333333] px-4 md:px-6 lg:px-8 py-16">
+        <h5 className="tracking-wider text-center text-[12px] text-white font-semibold">
+          FASHION SNEAKER
+        </h5>
+
+        <h1 className="text-white text-center text-3xl md:text-4xl font-semibold pt-3">
+          Timeless styles for everyday wear
+        </h1>
+
+        <p className="text-center text-white text-sm pt-3">
+          High-performance footwear for sports and
+          <span className="block">workouts</span>
+        </p>
+
+        <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {fashionSneakers.map((item, id) => (
+            <div
+              key={id}
+              className="flex flex-col justify-center items-start transition-transform duration-300 hover:scale-105 p-6 h-55 md:h-62.5 bg-cover bg-center bg-no-repeat rounded-md"
+              style={{ backgroundImage: `url('${item.image}')` }}
+            >
+              <p className="text-white tracking-wider text-[11px] font-semibold">
+                {item.title}
+              </p>
+
+              <p className="text-white text-xl md:text-2xl font-semibold pt-2">
+                {item.text}
+              </p>
+
+              <p className="text-white text-xl md:text-2xl font-semibold">
+                {item.spanText}
+              </p>
+
+              <button
+                onClick={handlebtnClick}
+                className="text-white tracking-wider text-[12px] pt-5 underline underline-offset-5 cursor-pointer"
+              >
+                {item.btnText}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {fashionSneaker2.map((item, id) => (
+            <div
+              key={id}
+              className="flex flex-col justify-center items-start transition-transform duration-300 hover:scale-105 p-6 h-55 md:h-62.5 bg-cover bg-center bg-no-repeat rounded-md"
+              style={{ backgroundImage: `url('${item.image}')` }}
+            >
+              <p className="text-white tracking-wider text-[11px] font-semibold">
+                {item.title}
+              </p>
+
+              <p className="text-white text-xl md:text-2xl font-semibold pt-2">
+                {item.text}
+              </p>
+
+              <p className="text-white text-xl md:text-2xl font-semibold">
+                {item.spanText}
+              </p>
+
+              <button
+                onClick={handlebtnClick}
+                className="text-white tracking-wider text-[12px] pt-5 underline underline-offset-5 cursor-pointer"
+              >
+                {item.btnText}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="w-full h-auto bg-[#FFFFFF] pb-16">
+        <p className="text-center text-[11px] text-gray-600 tracking-wider pt-10">
+          SEASON'S END SALE
+        </p>
+        <h1 className="md:text-5xl text-2xl text-center font-semibold mt-1">
+          Huge discounts on last season's styles
+        </h1>
+        <p className="text-center pt-4 text-[14px]">
+          Himenaeos nascetur tristique consequat mus ad.
+          <span className="block">
+            Accumsan fringilla in laoreet id bibendum et.
+          </span>
+        </p>
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-x-6 mt-10">
+          {SeasonSale.map((item, id) => (
+            <div
+              key={id}
+              className="flex items-center gap-4 py-5 border-b border-gray-100"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-20 h-20 object-contain shrink-0"
+              />
+              <div>
+                <h3 className="text-md font-semibold text-gray-800 cursor-pointer hover:text-[#ae3f4f]">
+                  {item.name}
+                </h3>
+                <p className="text-sm mt-1">{item.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="w-full h-auto flex flex-col md:flex-row justify-center items-center mx-auto gap-7">
+        <div className="w-[1/2] h-auto p-5">
+          <p className="tracking-wider text-[12px] md:text-[12px] text-center md:text-start">
+            OUT MOST POPULER STYLE
+          </p>
+          <h1 className="lg:text-4xl text-3xl font-semibold mt-2 text-center md:text-start">
+            Save big on shoes <span className="block">from last season</span>
+          </h1>
+          <p className="md:text-[12px] text-[13px] lg:text-[16px] mt-6 text-center md:text-start">
+            Morbi natoque id finibus natoque sapien turpis elementum maximus.
+            Sociosqu auctor a urna{" "}
+            <span className="block">
+              {" "}
+              consequat laoreet nisi accumsan magna. Adipiscing vulputate nec
+              euismod, a aliquam enim.
+            </span>{" "}
+            <span className="block">
+              {" "}
+              Mi facilisi ex est habitant lacus sagittis vitae.
+            </span>
+          </p>
+          <p className="md:text-[12px] text-[13px] lg:text-[16px] mt-6 text-center md:text-start">
+            Molestie dolor mus vitae penatibus sed lectus convallis ut neque.
+            Leo elementum euismod
+            <span className="block">
+              {" "}
+              penatibus cras sociosqu aliquet tellus.
+            </span>
+          </p>
+          <button
+            onClick={handlebtnClick}
+            className="bg-[#ae3f4f] hover:bg-black cursor-pointer flex justify-center items-center gap-1 w-34 h-11 text-white mt-10 tracking-wider text-sm mx-auto md:mx-0"
+          >
+            SHOP NOW <MdArrowRightAlt />
+          </button>
+        </div>
+        <img
+          src="/video-pic.webp"
+          alt=""
+          className="w-[1/2] h-110 p-5 md:w-96 lg:w-110"
+        />
+      </section>
+      <div className="w-full h-20 bg-[linear-gradient(90deg,rgba(149,109,194,1),rgba(78,73,145,1)_20%,rgba(185,61,70,1)_100%)] flex items-center justify-around px-10 mt-10 gap-3">
+        <p className="text-white md:text-[16px] text-[12px]">
+          Discover Our Stores: Your Local Shoe Haven
+        </p>
+
+        <button className="bg-[#4E4991] text-white md:px-6 md:py-2 px-1 py-1  md:text-sm text-[10px] cursor-pointer">
+          FIND STORE
+        </button>
       </div>
     </>
   );
