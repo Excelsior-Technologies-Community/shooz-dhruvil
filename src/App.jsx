@@ -4,6 +4,7 @@ import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
 import LandingPage from "./Components/LandingPage";
 import Collection from "./Components/Collection";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/collections" element={<Collection />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

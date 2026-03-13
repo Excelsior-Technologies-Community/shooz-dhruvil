@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { MdArrowRightAlt } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+import { MdOutlineMessage } from "react-icons/md";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -634,6 +636,192 @@ bg-[linear-gradient(90deg,rgba(88,119,40,1),rgba(185,110,17,1)_38%,rgba(198,75,4
         <button className="bg-[#4E4991] text-white md:px-6 md:py-2 px-1 py-1  md:text-sm text-[10px] cursor-pointer">
           FIND STORE
         </button>
+      </div>
+
+      <section className="w-full bg-[#f9f9f9] py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900">
+            Customer Feedback Highlights
+          </h2>
+          <p className="text-center text-sm text-gray-400 mt-3 leading-relaxed">
+            Laoreet ridiculus congue magna malesuada
+            <span className="block">
+              phasellus condimentum taciti mus primis.
+            </span>
+          </p>
+
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 gap-x-6 items-center justify-items-center">
+            <img
+              src="/text-logo-1.avif"
+              alt="penomé"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-3.avif"
+              alt="POWER"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-5.avif"
+              alt="CONNECT"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-7.avif"
+              alt="vagoda"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-9.avif"
+              alt="intrum"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+
+            <img
+              src="/text-logo-4.avif"
+              alt="Renové"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-11.avif"
+              alt="ELEVATE"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-6.avif"
+              alt="ZAVANA"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-8.avif"
+              alt="RIVAL"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+            <img
+              src="/text-logo-10.avif"
+              alt="voli.me"
+              className="h-14 md:h-16 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="max-w-6xl h-auto mx-auto px-4">
+        <p className="tracking-wider text-sm pt-15 text-gray-400">
+          FROM THE BLOG
+        </p>
+        <h2 className="text-5xl font-bold pt-1">Recently Our Posts</h2>
+        <p className="pt-3 text-[13px] text-gray-400">
+          Sit amet conse ctetur adipisicing elit, sed do{" "}
+          <span className="block">
+            {" "}
+            eiusmod tempor incididunt ut labore et dolore
+          </span>
+          <span className="block"> magna aliqua.</span>
+        </p>
+        <div className="flex flex-col md:flex-row gap-7 max-w-6xl h-auto mt-5 mb-16">
+          <div
+            className="w-full md:w-1/2 h-100 bg-cover bg-center bg-no-repeat rounded-md flex flex-col justify-end p-8"
+            style={{ backgroundImage: `url('/blog-2.webp')` }}
+          >
+            <div className="flex items-center gap-3">
+              <p className="text-sm text-white font-semibold">Oct 28 2024</p>
+              <div className="flex items-center gap-2">
+                <MdOutlineMessage className="text-white" />
+                <span className="text-white font-semibold text-sm">
+                  0 comments
+                </span>
+              </div>
+            </div>
+            <h2 className="font-semibold text-white text-lg mt-2">
+              The Future Of Footware: A Look Ahead
+            </h2>
+          </div>
+
+          <div className="w-full md:w-1/2 flex flex-col justify-between h-100">
+            <div className="flex items-center gap-5 h-30">
+              <img
+                src="/five-col-banner-4.webp"
+                alt="Ecofriendly Footwear"
+                className="w-40 h-28 object-cover rounded-md shrink-0"
+              />
+              <div>
+                <p className="flex items-center gap-2 lg:text-sm text-[10px] text-black font-semibold">
+                  Oct 28 2024
+                  <span className="flex items-center gap-1">
+                    <MdOutlineMessage className="text-black" />
+                    <span className="text-black font-semibold">0 comments</span>
+                  </span>
+                </p>
+                <h2 className="mt-2 lg:text-[18px] text-[12px] font-semibold">
+                  Ecofriendly Footeware: Sustaible Style
+                </h2>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-5 h-30">
+              <img
+                src="/blog-6.webp"
+                alt="Sneaker Care Guide"
+                className="w-40 h-28 object-cover rounded-md shrink-0"
+              />
+              <div>
+                <p className="flex items-center gap-2 lg:text-[13px] text-[10px] text-black font-semibold">
+                  Oct 17 2024
+                  <span className="flex items-center gap-1">
+                    <MdOutlineMessage className="text-black" />
+                    <span className="text-black font-semibold">0 comments</span>
+                  </span>
+                </p>
+                <h2 className="mt-2 lg:text-[18px] text-[12px] font-semibold">
+                  The Ultimate Guide to Sneaker Care
+                </h2>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-5 h-30">
+              <img
+                src="/blog-5.webp"
+                alt="Style Your Sneakers"
+                className="w-40 h-28 object-cover rounded-md shrink-0"
+              />
+              <div>
+                <p className="flex items-center gap-2 lg:text-sm text-[10px] text-black font-semibold">
+                  Oct 17 2024
+                  <span className="flex items-center gap-1">
+                    <MdOutlineMessage className="text-black" />
+                    <span className="text-black font-semibold">0 comments</span>
+                  </span>
+                </p>
+                <h2 className="mt-2 lg:text-[18px] text-[12px] font-semibold">
+                  How to Style Your Favorite Sneaker
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="max-w-6xl h-auto flex flex-col md:flex-row justify-center items-stretch mx-auto px-4 my-16">
+        <div className="bg-[#ae3f4f] w-full md:w-2/3 p-8 md:p-12 flex flex-col justify-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-white">
+            SUBSCRIBE TO OUR NEWS <span className="md:block">ARTICALS</span>
+          </h2>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center mt-4 md:mt-10 gap-2 sm:gap-0">
+            <input
+              type="text"
+              required
+              placeholder="Your Email"
+              className="flex-1 h-10 bg-white pl-3 outline-none"
+            />
+            <button className="bg-black text-white text-sm h-10 px-4 cursor-pointer whitespace-nowrap">
+              SUBSCRIBE
+            </button>
+          </div>
+        </div>
+        <img
+          src="imgi_285_newslatter-image.jpg"
+          alt=""
+          className="w-full md:w-1/3 h-52 sm:h-60 md:h-auto object-fit"
+        />
       </div>
     </>
   );
