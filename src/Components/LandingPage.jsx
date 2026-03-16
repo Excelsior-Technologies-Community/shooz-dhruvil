@@ -4,10 +4,17 @@ import { MdArrowRightAlt } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import { MdOutlineMessage } from "react-icons/md";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
+import { BsCartCheckFill } from "react-icons/bs";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import { useWishList } from "../context/WishlistContext";
+import { useCartList } from "../context/CartContext";
 
 const slides = [
   {
@@ -257,6 +264,10 @@ const LandingPage = () => {
   const handlebtnClick = () => {
     navigate("/collections");
   };
+
+  const { isWishlisted, toggleWishlist } = useWishList();
+  const { togglecartlist, iscartlisted } = useCartList();
+
   const [activeTab, setActiveTab] = useState("FEATURED");
 
   return (
@@ -363,11 +374,10 @@ const LandingPage = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`text-sm tracking-widest pb-2 cursor-pointer transition-all duration-200 ${
-                activeTab === tab
-                  ? "border-b-2 border-gray-900 text-gray-900 font-semibold"
-                  : "text-gray-400 hover:text-gray-700"
-              }`}
+              className={`text-sm tracking-widest pb-2 cursor-pointer transition-all duration-200 ${activeTab === tab
+                ? "border-b-2 border-gray-900 text-gray-900 font-semibold"
+                : "text-gray-400 hover:text-gray-700"
+                }`}
             >
               {tab}
             </button>
@@ -378,7 +388,6 @@ const LandingPage = () => {
           {sneakersProducts[activeTab].map((product) => (
             <div
               key={product.id}
-              onClick={handlebtnClick}
               className="cursor-pointer group"
             >
               <div className="bg-[#FBF9F7] group-hover:scale-105 flex justify-center items-center h-52 overflow-hidden relative mb-3">
@@ -389,9 +398,30 @@ const LandingPage = () => {
                 />
               </div>
 
-              <p className="text-sm font-semibold text-gray-800">
+              <p className="flex justify-start items-center gap-3 text-sm font-semibold text-gray-800">
                 {product.price}
+                <button
+                  className={`w-6 h-6 transition-colors duration-200`}
+                  onClick={() => { toggleWishlist(product), navigate('/wishlist') }}
+                  title={isWishlisted(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                >
+                  {isWishlisted(product.id) ?
+                    <FaHeart className="text-[#ae3f4f] w-5 h-5" />
+                    :
+                    <CiHeart className="text-gray-400 hover:text-[#ae3f4f] w-5 h-5" />}
+                </button>
+                <button
+                  className="w-5 h-5"
+                  onClick={() => { togglecartlist(product), navigate('/cart') }}
+                  title={iscartlisted(product.id) ? "Remove from cart" : "Add to cart"}
+                >
+                  {iscartlisted(product.id) ?
+                    <BsCartCheckFill className="text-[#ae3f4f] w-5 h-5" />
+                    :
+                    <FaCartPlus className="text-gray-400 hover:text-[#ae3f4f] w-5 h-5" />}
+                </button>
               </p>
+
               <p className="text-sm text-gray-700 mt-0.5">{product.name}</p>
               <p
                 className="text-xs mt-0.5"

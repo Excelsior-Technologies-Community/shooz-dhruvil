@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { PiHandbagBold } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
+import { useWishList } from "../context/WishlistContext";
+import { useCartList } from "../context/CartContext";
 
 
 const Navbar = () => {
   const [search, setSearch] = useState(false);
   const [openItem, setOpenItem] = useState(false);
   const [selectedItem, setSelectedItem] = useState(false);
+  const { wishlist } = useWishList();
+  const { cartlist } = useCartList();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full h-30 flex flex-col items-center justify-center">
@@ -218,8 +223,28 @@ const Navbar = () => {
             className="w-6 h-5 cursor-pointer"
             onClick={() => setSelectedItem(true)}
           />
-          <CiHeart className="w-6 h-5 cursor-pointer" />
-          <PiHandbagBold className="w-6 h-5 cursor-pointer" />
+          <button
+            className="relative cursor-pointer"
+            onClick={() => navigate("/wishlist")}
+          >
+            <CiHeart className="w-6 h-5" />
+            {wishlist.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-[#ae3f4f] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                {wishlist.length}
+              </span>
+            )}
+          </button>
+          <button
+            className="relative cursor-pointer"
+            onClick={() => navigate("/cart")}
+          >
+            <PiHandbagBold className="w-6 h-5" />
+            {cartlist.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-[#ae3f4f] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                {cartlist.length}
+              </span>
+            )}
+          </button>
         </div>
       </div>
     </div>
